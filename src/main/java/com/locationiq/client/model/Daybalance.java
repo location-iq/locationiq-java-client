@@ -33,6 +33,10 @@ public class Daybalance {
   @SerializedName(SERIALIZED_NAME_DAY)
   private Integer day = null;
 
+  public static final String SERIALIZED_NAME_BONUS = "bonus";
+  @SerializedName(SERIALIZED_NAME_BONUS)
+  private Integer bonus = null;
+
   public Daybalance day(Integer day) {
     this.day = day;
     return this;
@@ -51,6 +55,24 @@ public class Daybalance {
     this.day = day;
   }
 
+  public Daybalance bonus(Integer bonus) {
+    this.bonus = bonus;
+    return this;
+  }
+
+   /**
+   * Get bonus
+   * @return bonus
+  **/
+  @ApiModelProperty(value = "")
+  public Integer getBonus() {
+    return bonus;
+  }
+
+  public void setBonus(Integer bonus) {
+    this.bonus = bonus;
+  }
+
 
   @Override
   public boolean equals(java.lang.Object o) {
@@ -61,12 +83,13 @@ public class Daybalance {
       return false;
     }
     Daybalance daybalance = (Daybalance) o;
-    return Objects.equals(this.day, daybalance.day);
+    return Objects.equals(this.day, daybalance.day) &&
+        Objects.equals(this.bonus, daybalance.bonus);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(day);
+    return Objects.hash(day, bonus);
   }
 
 
@@ -76,6 +99,7 @@ public class Daybalance {
     sb.append("class Daybalance {\n");
     
     sb.append("    day: ").append(toIndentedString(day)).append("\n");
+    sb.append("    bonus: ").append(toIndentedString(bonus)).append("\n");
     sb.append("}");
     return sb.toString();
   }

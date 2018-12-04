@@ -61,7 +61,7 @@ public class SearchApi {
      * @param format Format to geocode. Only JSON supported for SDKs (required)
      * @param normalizecity For responses with no city value in the address section, the next available element in this order - city_district, locality, town, borough, municipality, village, hamlet, quarter, neighbourhood - from the address section will be normalized to city. Defaults to 1 for SDKs. (required)
      * @param addressdetails Include a breakdown of the address into elements. Defaults to 0. (optional)
-     * @param viewbox The preferred area to find search results.  To restrict results to those within the viewbox, use along with the bounded option. (optional)
+     * @param viewbox The preferred area to find search results.  To restrict results to those within the viewbox, use along with the bounded option. Tuple of 4 floats. Any two corner points of the box - &#x60;max_lon,max_lat,min_lon,min_lat&#x60; or &#x60;min_lon,min_lat,max_lon,max_lat&#x60; - are accepted in any order as long as they span a real box.  (optional)
      * @param bounded Restrict the results to only items contained with the viewbox (optional)
      * @param limit Limit the number of returned results. Default is 10. (optional, default to 10)
      * @param acceptLanguage Preferred language order for showing search results, overrides the value specified in the Accept-Language HTTP header. Defaults to en. To use native language for the response when available, use accept-language&#x3D;native (optional)
@@ -69,12 +69,13 @@ public class SearchApi {
      * @param namedetails Include a list of alternative names in the results. These may include language variants, references, operator and brand. (optional)
      * @param dedupe Sometimes you have several objects in OSM identifying the same place or object in reality. The simplest case is a street being split in many different OSM ways due to different characteristics. Nominatim will attempt to detect such duplicates and only return one match; this is controlled by the dedupe parameter which defaults to 1. Since the limit is, for reasons of efficiency, enforced before and not after de-duplicating, it is possible that de-duplicating leaves you with less results than requested. (optional)
      * @param extratags Include additional information in the result if available, e.g. wikipedia link, opening hours. (optional)
+     * @param statecode Adds state or province code when available to the statecode key inside the address element. Currently supported for addresses in the USA, Canada and Australia. Defaults to 0 (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call searchCall(String q, String format, Integer normalizecity, Integer addressdetails, String viewbox, Integer bounded, Integer limit, String acceptLanguage, String countrycodes, Integer namedetails, Integer dedupe, Integer extratags, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call searchCall(String q, String format, Integer normalizecity, Integer addressdetails, String viewbox, Integer bounded, Integer limit, String acceptLanguage, String countrycodes, Integer namedetails, Integer dedupe, Integer extratags, Integer statecode, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = new Object();
 
         // create path and map variables
@@ -106,6 +107,8 @@ public class SearchApi {
         localVarQueryParams.addAll(apiClient.parameterToPair("dedupe", dedupe));
         if (extratags != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("extratags", extratags));
+        if (statecode != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("statecode", statecode));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -140,7 +143,7 @@ public class SearchApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call searchValidateBeforeCall(String q, String format, Integer normalizecity, Integer addressdetails, String viewbox, Integer bounded, Integer limit, String acceptLanguage, String countrycodes, Integer namedetails, Integer dedupe, Integer extratags, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call searchValidateBeforeCall(String q, String format, Integer normalizecity, Integer addressdetails, String viewbox, Integer bounded, Integer limit, String acceptLanguage, String countrycodes, Integer namedetails, Integer dedupe, Integer extratags, Integer statecode, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'q' is set
         if (q == null) {
@@ -158,7 +161,7 @@ public class SearchApi {
         }
         
 
-        com.squareup.okhttp.Call call = searchCall(q, format, normalizecity, addressdetails, viewbox, bounded, limit, acceptLanguage, countrycodes, namedetails, dedupe, extratags, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = searchCall(q, format, normalizecity, addressdetails, viewbox, bounded, limit, acceptLanguage, countrycodes, namedetails, dedupe, extratags, statecode, progressListener, progressRequestListener);
         return call;
 
     }
@@ -170,7 +173,7 @@ public class SearchApi {
      * @param format Format to geocode. Only JSON supported for SDKs (required)
      * @param normalizecity For responses with no city value in the address section, the next available element in this order - city_district, locality, town, borough, municipality, village, hamlet, quarter, neighbourhood - from the address section will be normalized to city. Defaults to 1 for SDKs. (required)
      * @param addressdetails Include a breakdown of the address into elements. Defaults to 0. (optional)
-     * @param viewbox The preferred area to find search results.  To restrict results to those within the viewbox, use along with the bounded option. (optional)
+     * @param viewbox The preferred area to find search results.  To restrict results to those within the viewbox, use along with the bounded option. Tuple of 4 floats. Any two corner points of the box - &#x60;max_lon,max_lat,min_lon,min_lat&#x60; or &#x60;min_lon,min_lat,max_lon,max_lat&#x60; - are accepted in any order as long as they span a real box.  (optional)
      * @param bounded Restrict the results to only items contained with the viewbox (optional)
      * @param limit Limit the number of returned results. Default is 10. (optional, default to 10)
      * @param acceptLanguage Preferred language order for showing search results, overrides the value specified in the Accept-Language HTTP header. Defaults to en. To use native language for the response when available, use accept-language&#x3D;native (optional)
@@ -178,11 +181,12 @@ public class SearchApi {
      * @param namedetails Include a list of alternative names in the results. These may include language variants, references, operator and brand. (optional)
      * @param dedupe Sometimes you have several objects in OSM identifying the same place or object in reality. The simplest case is a street being split in many different OSM ways due to different characteristics. Nominatim will attempt to detect such duplicates and only return one match; this is controlled by the dedupe parameter which defaults to 1. Since the limit is, for reasons of efficiency, enforced before and not after de-duplicating, it is possible that de-duplicating leaves you with less results than requested. (optional)
      * @param extratags Include additional information in the result if available, e.g. wikipedia link, opening hours. (optional)
+     * @param statecode Adds state or province code when available to the statecode key inside the address element. Currently supported for addresses in the USA, Canada and Australia. Defaults to 0 (optional)
      * @return List&lt;Location&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public List<Location> search(String q, String format, Integer normalizecity, Integer addressdetails, String viewbox, Integer bounded, Integer limit, String acceptLanguage, String countrycodes, Integer namedetails, Integer dedupe, Integer extratags) throws ApiException {
-        ApiResponse<List<Location>> resp = searchWithHttpInfo(q, format, normalizecity, addressdetails, viewbox, bounded, limit, acceptLanguage, countrycodes, namedetails, dedupe, extratags);
+    public List<Location> search(String q, String format, Integer normalizecity, Integer addressdetails, String viewbox, Integer bounded, Integer limit, String acceptLanguage, String countrycodes, Integer namedetails, Integer dedupe, Integer extratags, Integer statecode) throws ApiException {
+        ApiResponse<List<Location>> resp = searchWithHttpInfo(q, format, normalizecity, addressdetails, viewbox, bounded, limit, acceptLanguage, countrycodes, namedetails, dedupe, extratags, statecode);
         return resp.getData();
     }
 
@@ -193,7 +197,7 @@ public class SearchApi {
      * @param format Format to geocode. Only JSON supported for SDKs (required)
      * @param normalizecity For responses with no city value in the address section, the next available element in this order - city_district, locality, town, borough, municipality, village, hamlet, quarter, neighbourhood - from the address section will be normalized to city. Defaults to 1 for SDKs. (required)
      * @param addressdetails Include a breakdown of the address into elements. Defaults to 0. (optional)
-     * @param viewbox The preferred area to find search results.  To restrict results to those within the viewbox, use along with the bounded option. (optional)
+     * @param viewbox The preferred area to find search results.  To restrict results to those within the viewbox, use along with the bounded option. Tuple of 4 floats. Any two corner points of the box - &#x60;max_lon,max_lat,min_lon,min_lat&#x60; or &#x60;min_lon,min_lat,max_lon,max_lat&#x60; - are accepted in any order as long as they span a real box.  (optional)
      * @param bounded Restrict the results to only items contained with the viewbox (optional)
      * @param limit Limit the number of returned results. Default is 10. (optional, default to 10)
      * @param acceptLanguage Preferred language order for showing search results, overrides the value specified in the Accept-Language HTTP header. Defaults to en. To use native language for the response when available, use accept-language&#x3D;native (optional)
@@ -201,11 +205,12 @@ public class SearchApi {
      * @param namedetails Include a list of alternative names in the results. These may include language variants, references, operator and brand. (optional)
      * @param dedupe Sometimes you have several objects in OSM identifying the same place or object in reality. The simplest case is a street being split in many different OSM ways due to different characteristics. Nominatim will attempt to detect such duplicates and only return one match; this is controlled by the dedupe parameter which defaults to 1. Since the limit is, for reasons of efficiency, enforced before and not after de-duplicating, it is possible that de-duplicating leaves you with less results than requested. (optional)
      * @param extratags Include additional information in the result if available, e.g. wikipedia link, opening hours. (optional)
+     * @param statecode Adds state or province code when available to the statecode key inside the address element. Currently supported for addresses in the USA, Canada and Australia. Defaults to 0 (optional)
      * @return ApiResponse&lt;List&lt;Location&gt;&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<List<Location>> searchWithHttpInfo(String q, String format, Integer normalizecity, Integer addressdetails, String viewbox, Integer bounded, Integer limit, String acceptLanguage, String countrycodes, Integer namedetails, Integer dedupe, Integer extratags) throws ApiException {
-        com.squareup.okhttp.Call call = searchValidateBeforeCall(q, format, normalizecity, addressdetails, viewbox, bounded, limit, acceptLanguage, countrycodes, namedetails, dedupe, extratags, null, null);
+    public ApiResponse<List<Location>> searchWithHttpInfo(String q, String format, Integer normalizecity, Integer addressdetails, String viewbox, Integer bounded, Integer limit, String acceptLanguage, String countrycodes, Integer namedetails, Integer dedupe, Integer extratags, Integer statecode) throws ApiException {
+        com.squareup.okhttp.Call call = searchValidateBeforeCall(q, format, normalizecity, addressdetails, viewbox, bounded, limit, acceptLanguage, countrycodes, namedetails, dedupe, extratags, statecode, null, null);
         Type localVarReturnType = new TypeToken<List<Location>>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -217,7 +222,7 @@ public class SearchApi {
      * @param format Format to geocode. Only JSON supported for SDKs (required)
      * @param normalizecity For responses with no city value in the address section, the next available element in this order - city_district, locality, town, borough, municipality, village, hamlet, quarter, neighbourhood - from the address section will be normalized to city. Defaults to 1 for SDKs. (required)
      * @param addressdetails Include a breakdown of the address into elements. Defaults to 0. (optional)
-     * @param viewbox The preferred area to find search results.  To restrict results to those within the viewbox, use along with the bounded option. (optional)
+     * @param viewbox The preferred area to find search results.  To restrict results to those within the viewbox, use along with the bounded option. Tuple of 4 floats. Any two corner points of the box - &#x60;max_lon,max_lat,min_lon,min_lat&#x60; or &#x60;min_lon,min_lat,max_lon,max_lat&#x60; - are accepted in any order as long as they span a real box.  (optional)
      * @param bounded Restrict the results to only items contained with the viewbox (optional)
      * @param limit Limit the number of returned results. Default is 10. (optional, default to 10)
      * @param acceptLanguage Preferred language order for showing search results, overrides the value specified in the Accept-Language HTTP header. Defaults to en. To use native language for the response when available, use accept-language&#x3D;native (optional)
@@ -225,11 +230,12 @@ public class SearchApi {
      * @param namedetails Include a list of alternative names in the results. These may include language variants, references, operator and brand. (optional)
      * @param dedupe Sometimes you have several objects in OSM identifying the same place or object in reality. The simplest case is a street being split in many different OSM ways due to different characteristics. Nominatim will attempt to detect such duplicates and only return one match; this is controlled by the dedupe parameter which defaults to 1. Since the limit is, for reasons of efficiency, enforced before and not after de-duplicating, it is possible that de-duplicating leaves you with less results than requested. (optional)
      * @param extratags Include additional information in the result if available, e.g. wikipedia link, opening hours. (optional)
+     * @param statecode Adds state or province code when available to the statecode key inside the address element. Currently supported for addresses in the USA, Canada and Australia. Defaults to 0 (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call searchAsync(String q, String format, Integer normalizecity, Integer addressdetails, String viewbox, Integer bounded, Integer limit, String acceptLanguage, String countrycodes, Integer namedetails, Integer dedupe, Integer extratags, final ApiCallback<List<Location>> callback) throws ApiException {
+    public com.squareup.okhttp.Call searchAsync(String q, String format, Integer normalizecity, Integer addressdetails, String viewbox, Integer bounded, Integer limit, String acceptLanguage, String countrycodes, Integer namedetails, Integer dedupe, Integer extratags, Integer statecode, final ApiCallback<List<Location>> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -250,7 +256,7 @@ public class SearchApi {
             };
         }
 
-        com.squareup.okhttp.Call call = searchValidateBeforeCall(q, format, normalizecity, addressdetails, viewbox, bounded, limit, acceptLanguage, countrycodes, namedetails, dedupe, extratags, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = searchValidateBeforeCall(q, format, normalizecity, addressdetails, viewbox, bounded, limit, acceptLanguage, countrycodes, namedetails, dedupe, extratags, statecode, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<List<Location>>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

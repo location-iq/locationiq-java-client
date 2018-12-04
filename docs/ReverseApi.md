@@ -9,7 +9,7 @@ Method | HTTP request | Description
 
 <a name="reverse"></a>
 # **reverse**
-> Location reverse(lat, lon, format, normalizecity, addressdetails, acceptLanguage, namedetails, extratags)
+> Location reverse(lat, lon, format, normalizecity, addressdetails, acceptLanguage, namedetails, extratags, statecode)
 
 Reverse Geocoding
 
@@ -41,8 +41,9 @@ Integer addressdetails = 1; // Integer | Include a breakdown of the address into
 String acceptLanguage = "en"; // String | Preferred language order for showing search results, overrides the value specified in the Accept-Language HTTP header. Defaults to en. To use native language for the response when available, use accept-language=native
 Integer namedetails = 0; // Integer | Include a list of alternative names in the results. These may include language variants, references, operator and brand.
 Integer extratags = 0; // Integer | Include additional information in the result if available, e.g. wikipedia link, opening hours.
+Integer statecode = 0; // Integer | Adds state or province code when available to the statecode key inside the address element. Currently supported for addresses in the USA, Canada and Australia. Defaults to 0
 try {
-    Location result = apiInstance.reverse(lat, lon, format, normalizecity, addressdetails, acceptLanguage, namedetails, extratags);
+    Location result = apiInstance.reverse(lat, lon, format, normalizecity, addressdetails, acceptLanguage, namedetails, extratags, statecode);
     System.out.println(result);
 } catch (ApiException e) {
     System.err.println("Exception when calling ReverseApi#reverse");
@@ -62,6 +63,7 @@ Name | Type | Description  | Notes
  **acceptLanguage** | **String**| Preferred language order for showing search results, overrides the value specified in the Accept-Language HTTP header. Defaults to en. To use native language for the response when available, use accept-language&#x3D;native | [optional]
  **namedetails** | **Integer**| Include a list of alternative names in the results. These may include language variants, references, operator and brand. | [optional] [enum: 0, 1]
  **extratags** | **Integer**| Include additional information in the result if available, e.g. wikipedia link, opening hours. | [optional] [enum: 0, 1]
+ **statecode** | **Integer**| Adds state or province code when available to the statecode key inside the address element. Currently supported for addresses in the USA, Canada and Australia. Defaults to 0 | [optional] [enum: 0, 1]
 
 ### Return type
 

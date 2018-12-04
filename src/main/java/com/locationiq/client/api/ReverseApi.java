@@ -66,12 +66,13 @@ public class ReverseApi {
      * @param acceptLanguage Preferred language order for showing search results, overrides the value specified in the Accept-Language HTTP header. Defaults to en. To use native language for the response when available, use accept-language&#x3D;native (optional)
      * @param namedetails Include a list of alternative names in the results. These may include language variants, references, operator and brand. (optional)
      * @param extratags Include additional information in the result if available, e.g. wikipedia link, opening hours. (optional)
+     * @param statecode Adds state or province code when available to the statecode key inside the address element. Currently supported for addresses in the USA, Canada and Australia. Defaults to 0 (optional)
      * @param progressListener Progress listener
      * @param progressRequestListener Progress request listener
      * @return Call to execute
      * @throws ApiException If fail to serialize the request body object
      */
-    public com.squareup.okhttp.Call reverseCall(BigDecimal lat, BigDecimal lon, String format, Integer normalizecity, Integer addressdetails, String acceptLanguage, Integer namedetails, Integer extratags, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    public com.squareup.okhttp.Call reverseCall(BigDecimal lat, BigDecimal lon, String format, Integer normalizecity, Integer addressdetails, String acceptLanguage, Integer namedetails, Integer extratags, Integer statecode, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         Object localVarPostBody = new Object();
 
         // create path and map variables
@@ -95,6 +96,8 @@ public class ReverseApi {
         localVarQueryParams.addAll(apiClient.parameterToPair("namedetails", namedetails));
         if (extratags != null)
         localVarQueryParams.addAll(apiClient.parameterToPair("extratags", extratags));
+        if (statecode != null)
+        localVarQueryParams.addAll(apiClient.parameterToPair("statecode", statecode));
 
         Map<String, String> localVarHeaderParams = new HashMap<String, String>();
 
@@ -129,7 +132,7 @@ public class ReverseApi {
     }
 
     @SuppressWarnings("rawtypes")
-    private com.squareup.okhttp.Call reverseValidateBeforeCall(BigDecimal lat, BigDecimal lon, String format, Integer normalizecity, Integer addressdetails, String acceptLanguage, Integer namedetails, Integer extratags, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
+    private com.squareup.okhttp.Call reverseValidateBeforeCall(BigDecimal lat, BigDecimal lon, String format, Integer normalizecity, Integer addressdetails, String acceptLanguage, Integer namedetails, Integer extratags, Integer statecode, final ProgressResponseBody.ProgressListener progressListener, final ProgressRequestBody.ProgressRequestListener progressRequestListener) throws ApiException {
         
         // verify the required parameter 'lat' is set
         if (lat == null) {
@@ -152,7 +155,7 @@ public class ReverseApi {
         }
         
 
-        com.squareup.okhttp.Call call = reverseCall(lat, lon, format, normalizecity, addressdetails, acceptLanguage, namedetails, extratags, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = reverseCall(lat, lon, format, normalizecity, addressdetails, acceptLanguage, namedetails, extratags, statecode, progressListener, progressRequestListener);
         return call;
 
     }
@@ -168,11 +171,12 @@ public class ReverseApi {
      * @param acceptLanguage Preferred language order for showing search results, overrides the value specified in the Accept-Language HTTP header. Defaults to en. To use native language for the response when available, use accept-language&#x3D;native (optional)
      * @param namedetails Include a list of alternative names in the results. These may include language variants, references, operator and brand. (optional)
      * @param extratags Include additional information in the result if available, e.g. wikipedia link, opening hours. (optional)
+     * @param statecode Adds state or province code when available to the statecode key inside the address element. Currently supported for addresses in the USA, Canada and Australia. Defaults to 0 (optional)
      * @return Location
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public Location reverse(BigDecimal lat, BigDecimal lon, String format, Integer normalizecity, Integer addressdetails, String acceptLanguage, Integer namedetails, Integer extratags) throws ApiException {
-        ApiResponse<Location> resp = reverseWithHttpInfo(lat, lon, format, normalizecity, addressdetails, acceptLanguage, namedetails, extratags);
+    public Location reverse(BigDecimal lat, BigDecimal lon, String format, Integer normalizecity, Integer addressdetails, String acceptLanguage, Integer namedetails, Integer extratags, Integer statecode) throws ApiException {
+        ApiResponse<Location> resp = reverseWithHttpInfo(lat, lon, format, normalizecity, addressdetails, acceptLanguage, namedetails, extratags, statecode);
         return resp.getData();
     }
 
@@ -187,11 +191,12 @@ public class ReverseApi {
      * @param acceptLanguage Preferred language order for showing search results, overrides the value specified in the Accept-Language HTTP header. Defaults to en. To use native language for the response when available, use accept-language&#x3D;native (optional)
      * @param namedetails Include a list of alternative names in the results. These may include language variants, references, operator and brand. (optional)
      * @param extratags Include additional information in the result if available, e.g. wikipedia link, opening hours. (optional)
+     * @param statecode Adds state or province code when available to the statecode key inside the address element. Currently supported for addresses in the USA, Canada and Australia. Defaults to 0 (optional)
      * @return ApiResponse&lt;Location&gt;
      * @throws ApiException If fail to call the API, e.g. server error or cannot deserialize the response body
      */
-    public ApiResponse<Location> reverseWithHttpInfo(BigDecimal lat, BigDecimal lon, String format, Integer normalizecity, Integer addressdetails, String acceptLanguage, Integer namedetails, Integer extratags) throws ApiException {
-        com.squareup.okhttp.Call call = reverseValidateBeforeCall(lat, lon, format, normalizecity, addressdetails, acceptLanguage, namedetails, extratags, null, null);
+    public ApiResponse<Location> reverseWithHttpInfo(BigDecimal lat, BigDecimal lon, String format, Integer normalizecity, Integer addressdetails, String acceptLanguage, Integer namedetails, Integer extratags, Integer statecode) throws ApiException {
+        com.squareup.okhttp.Call call = reverseValidateBeforeCall(lat, lon, format, normalizecity, addressdetails, acceptLanguage, namedetails, extratags, statecode, null, null);
         Type localVarReturnType = new TypeToken<Location>(){}.getType();
         return apiClient.execute(call, localVarReturnType);
     }
@@ -207,11 +212,12 @@ public class ReverseApi {
      * @param acceptLanguage Preferred language order for showing search results, overrides the value specified in the Accept-Language HTTP header. Defaults to en. To use native language for the response when available, use accept-language&#x3D;native (optional)
      * @param namedetails Include a list of alternative names in the results. These may include language variants, references, operator and brand. (optional)
      * @param extratags Include additional information in the result if available, e.g. wikipedia link, opening hours. (optional)
+     * @param statecode Adds state or province code when available to the statecode key inside the address element. Currently supported for addresses in the USA, Canada and Australia. Defaults to 0 (optional)
      * @param callback The callback to be executed when the API call finishes
      * @return The request call
      * @throws ApiException If fail to process the API call, e.g. serializing the request body object
      */
-    public com.squareup.okhttp.Call reverseAsync(BigDecimal lat, BigDecimal lon, String format, Integer normalizecity, Integer addressdetails, String acceptLanguage, Integer namedetails, Integer extratags, final ApiCallback<Location> callback) throws ApiException {
+    public com.squareup.okhttp.Call reverseAsync(BigDecimal lat, BigDecimal lon, String format, Integer normalizecity, Integer addressdetails, String acceptLanguage, Integer namedetails, Integer extratags, Integer statecode, final ApiCallback<Location> callback) throws ApiException {
 
         ProgressResponseBody.ProgressListener progressListener = null;
         ProgressRequestBody.ProgressRequestListener progressRequestListener = null;
@@ -232,7 +238,7 @@ public class ReverseApi {
             };
         }
 
-        com.squareup.okhttp.Call call = reverseValidateBeforeCall(lat, lon, format, normalizecity, addressdetails, acceptLanguage, namedetails, extratags, progressListener, progressRequestListener);
+        com.squareup.okhttp.Call call = reverseValidateBeforeCall(lat, lon, format, normalizecity, addressdetails, acceptLanguage, namedetails, extratags, statecode, progressListener, progressRequestListener);
         Type localVarReturnType = new TypeToken<Location>(){}.getType();
         apiClient.executeAsync(call, localVarReturnType, callback);
         return call;

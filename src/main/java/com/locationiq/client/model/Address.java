@@ -41,9 +41,45 @@ public class Address {
   @SerializedName(SERIALIZED_NAME_RESIDENTIAL)
   private String residential = null;
 
+  public static final String SERIALIZED_NAME_BOROUGH = "borough";
+  @SerializedName(SERIALIZED_NAME_BOROUGH)
+  private String borough = null;
+
+  public static final String SERIALIZED_NAME_NEIGHBOURHOOD = "neighbourhood";
+  @SerializedName(SERIALIZED_NAME_NEIGHBOURHOOD)
+  private String neighbourhood = null;
+
+  public static final String SERIALIZED_NAME_QUARTER = "quarter";
+  @SerializedName(SERIALIZED_NAME_QUARTER)
+  private String quarter = null;
+
+  public static final String SERIALIZED_NAME_HAMLET = "hamlet";
+  @SerializedName(SERIALIZED_NAME_HAMLET)
+  private String hamlet = null;
+
+  public static final String SERIALIZED_NAME_SUBURB = "suburb";
+  @SerializedName(SERIALIZED_NAME_SUBURB)
+  private String suburb = null;
+
+  public static final String SERIALIZED_NAME_ISLAND = "island";
+  @SerializedName(SERIALIZED_NAME_ISLAND)
+  private String island = null;
+
   public static final String SERIALIZED_NAME_VILLAGE = "village";
   @SerializedName(SERIALIZED_NAME_VILLAGE)
   private String village = null;
+
+  public static final String SERIALIZED_NAME_TOWN = "town";
+  @SerializedName(SERIALIZED_NAME_TOWN)
+  private String town = null;
+
+  public static final String SERIALIZED_NAME_CITY = "city";
+  @SerializedName(SERIALIZED_NAME_CITY)
+  private String city = null;
+
+  public static final String SERIALIZED_NAME_CITY_DISTRICT = "city_district";
+  @SerializedName(SERIALIZED_NAME_CITY_DISTRICT)
+  private String cityDistrict = null;
 
   public static final String SERIALIZED_NAME_COUNTY = "county";
   @SerializedName(SERIALIZED_NAME_COUNTY)
@@ -52,6 +88,10 @@ public class Address {
   public static final String SERIALIZED_NAME_STATE = "state";
   @SerializedName(SERIALIZED_NAME_STATE)
   private String state = null;
+
+  public static final String SERIALIZED_NAME_STATE_DISTRICT = "state_district";
+  @SerializedName(SERIALIZED_NAME_STATE_DISTRICT)
+  private String stateDistrict = null;
 
   public static final String SERIALIZED_NAME_POSTCODE = "postcode";
   @SerializedName(SERIALIZED_NAME_POSTCODE)
@@ -65,9 +105,9 @@ public class Address {
   @SerializedName(SERIALIZED_NAME_COUNTRY_CODE)
   private String countryCode = null;
 
-  public static final String SERIALIZED_NAME_CITY = "city";
-  @SerializedName(SERIALIZED_NAME_CITY)
-  private String city = null;
+  public static final String SERIALIZED_NAME_STATE_CODE = "state_code";
+  @SerializedName(SERIALIZED_NAME_STATE_CODE)
+  private String stateCode = null;
 
   public Address houseNumber(String houseNumber) {
     this.houseNumber = houseNumber;
@@ -123,6 +163,114 @@ public class Address {
     this.residential = residential;
   }
 
+  public Address borough(String borough) {
+    this.borough = borough;
+    return this;
+  }
+
+   /**
+   * Get borough
+   * @return borough
+  **/
+  @ApiModelProperty(value = "")
+  public String getBorough() {
+    return borough;
+  }
+
+  public void setBorough(String borough) {
+    this.borough = borough;
+  }
+
+  public Address neighbourhood(String neighbourhood) {
+    this.neighbourhood = neighbourhood;
+    return this;
+  }
+
+   /**
+   * Get neighbourhood
+   * @return neighbourhood
+  **/
+  @ApiModelProperty(value = "")
+  public String getNeighbourhood() {
+    return neighbourhood;
+  }
+
+  public void setNeighbourhood(String neighbourhood) {
+    this.neighbourhood = neighbourhood;
+  }
+
+  public Address quarter(String quarter) {
+    this.quarter = quarter;
+    return this;
+  }
+
+   /**
+   * Get quarter
+   * @return quarter
+  **/
+  @ApiModelProperty(value = "")
+  public String getQuarter() {
+    return quarter;
+  }
+
+  public void setQuarter(String quarter) {
+    this.quarter = quarter;
+  }
+
+  public Address hamlet(String hamlet) {
+    this.hamlet = hamlet;
+    return this;
+  }
+
+   /**
+   * Get hamlet
+   * @return hamlet
+  **/
+  @ApiModelProperty(value = "")
+  public String getHamlet() {
+    return hamlet;
+  }
+
+  public void setHamlet(String hamlet) {
+    this.hamlet = hamlet;
+  }
+
+  public Address suburb(String suburb) {
+    this.suburb = suburb;
+    return this;
+  }
+
+   /**
+   * Get suburb
+   * @return suburb
+  **/
+  @ApiModelProperty(value = "")
+  public String getSuburb() {
+    return suburb;
+  }
+
+  public void setSuburb(String suburb) {
+    this.suburb = suburb;
+  }
+
+  public Address island(String island) {
+    this.island = island;
+    return this;
+  }
+
+   /**
+   * Get island
+   * @return island
+  **/
+  @ApiModelProperty(value = "")
+  public String getIsland() {
+    return island;
+  }
+
+  public void setIsland(String island) {
+    this.island = island;
+  }
+
   public Address village(String village) {
     this.village = village;
     return this;
@@ -139,6 +287,60 @@ public class Address {
 
   public void setVillage(String village) {
     this.village = village;
+  }
+
+  public Address town(String town) {
+    this.town = town;
+    return this;
+  }
+
+   /**
+   * Get town
+   * @return town
+  **/
+  @ApiModelProperty(value = "")
+  public String getTown() {
+    return town;
+  }
+
+  public void setTown(String town) {
+    this.town = town;
+  }
+
+  public Address city(String city) {
+    this.city = city;
+    return this;
+  }
+
+   /**
+   * Get city
+   * @return city
+  **/
+  @ApiModelProperty(value = "")
+  public String getCity() {
+    return city;
+  }
+
+  public void setCity(String city) {
+    this.city = city;
+  }
+
+  public Address cityDistrict(String cityDistrict) {
+    this.cityDistrict = cityDistrict;
+    return this;
+  }
+
+   /**
+   * Get cityDistrict
+   * @return cityDistrict
+  **/
+  @ApiModelProperty(value = "")
+  public String getCityDistrict() {
+    return cityDistrict;
+  }
+
+  public void setCityDistrict(String cityDistrict) {
+    this.cityDistrict = cityDistrict;
   }
 
   public Address county(String county) {
@@ -175,6 +377,24 @@ public class Address {
 
   public void setState(String state) {
     this.state = state;
+  }
+
+  public Address stateDistrict(String stateDistrict) {
+    this.stateDistrict = stateDistrict;
+    return this;
+  }
+
+   /**
+   * Get stateDistrict
+   * @return stateDistrict
+  **/
+  @ApiModelProperty(value = "")
+  public String getStateDistrict() {
+    return stateDistrict;
+  }
+
+  public void setStateDistrict(String stateDistrict) {
+    this.stateDistrict = stateDistrict;
   }
 
   public Address postcode(String postcode) {
@@ -231,22 +451,22 @@ public class Address {
     this.countryCode = countryCode;
   }
 
-  public Address city(String city) {
-    this.city = city;
+  public Address stateCode(String stateCode) {
+    this.stateCode = stateCode;
     return this;
   }
 
    /**
-   * Get city
-   * @return city
+   * Get stateCode
+   * @return stateCode
   **/
   @ApiModelProperty(value = "")
-  public String getCity() {
-    return city;
+  public String getStateCode() {
+    return stateCode;
   }
 
-  public void setCity(String city) {
-    this.city = city;
+  public void setStateCode(String stateCode) {
+    this.stateCode = stateCode;
   }
 
 
@@ -262,18 +482,28 @@ public class Address {
     return Objects.equals(this.houseNumber, address.houseNumber) &&
         Objects.equals(this.road, address.road) &&
         Objects.equals(this.residential, address.residential) &&
+        Objects.equals(this.borough, address.borough) &&
+        Objects.equals(this.neighbourhood, address.neighbourhood) &&
+        Objects.equals(this.quarter, address.quarter) &&
+        Objects.equals(this.hamlet, address.hamlet) &&
+        Objects.equals(this.suburb, address.suburb) &&
+        Objects.equals(this.island, address.island) &&
         Objects.equals(this.village, address.village) &&
+        Objects.equals(this.town, address.town) &&
+        Objects.equals(this.city, address.city) &&
+        Objects.equals(this.cityDistrict, address.cityDistrict) &&
         Objects.equals(this.county, address.county) &&
         Objects.equals(this.state, address.state) &&
+        Objects.equals(this.stateDistrict, address.stateDistrict) &&
         Objects.equals(this.postcode, address.postcode) &&
         Objects.equals(this.country, address.country) &&
         Objects.equals(this.countryCode, address.countryCode) &&
-        Objects.equals(this.city, address.city);
+        Objects.equals(this.stateCode, address.stateCode);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(houseNumber, road, residential, village, county, state, postcode, country, countryCode, city);
+    return Objects.hash(houseNumber, road, residential, borough, neighbourhood, quarter, hamlet, suburb, island, village, town, city, cityDistrict, county, state, stateDistrict, postcode, country, countryCode, stateCode);
   }
 
 
@@ -285,13 +515,23 @@ public class Address {
     sb.append("    houseNumber: ").append(toIndentedString(houseNumber)).append("\n");
     sb.append("    road: ").append(toIndentedString(road)).append("\n");
     sb.append("    residential: ").append(toIndentedString(residential)).append("\n");
+    sb.append("    borough: ").append(toIndentedString(borough)).append("\n");
+    sb.append("    neighbourhood: ").append(toIndentedString(neighbourhood)).append("\n");
+    sb.append("    quarter: ").append(toIndentedString(quarter)).append("\n");
+    sb.append("    hamlet: ").append(toIndentedString(hamlet)).append("\n");
+    sb.append("    suburb: ").append(toIndentedString(suburb)).append("\n");
+    sb.append("    island: ").append(toIndentedString(island)).append("\n");
     sb.append("    village: ").append(toIndentedString(village)).append("\n");
+    sb.append("    town: ").append(toIndentedString(town)).append("\n");
+    sb.append("    city: ").append(toIndentedString(city)).append("\n");
+    sb.append("    cityDistrict: ").append(toIndentedString(cityDistrict)).append("\n");
     sb.append("    county: ").append(toIndentedString(county)).append("\n");
     sb.append("    state: ").append(toIndentedString(state)).append("\n");
+    sb.append("    stateDistrict: ").append(toIndentedString(stateDistrict)).append("\n");
     sb.append("    postcode: ").append(toIndentedString(postcode)).append("\n");
     sb.append("    country: ").append(toIndentedString(country)).append("\n");
     sb.append("    countryCode: ").append(toIndentedString(countryCode)).append("\n");
-    sb.append("    city: ").append(toIndentedString(city)).append("\n");
+    sb.append("    stateCode: ").append(toIndentedString(stateCode)).append("\n");
     sb.append("}");
     return sb.toString();
   }
