@@ -55,7 +55,8 @@ public class SearchApiTest {
         Integer namedetails = null;
         Integer dedupe = null;
         Integer extratags = null;
-        List<Location> response = api.search(q, format, normalizecity, addressdetails, viewbox, bounded, limit, acceptLanguage, countrycodes, namedetails, dedupe, extratags);
+        Integer stateCode = null;
+        List<Location> response = api.search(q, format, normalizecity, addressdetails, viewbox, bounded, limit, acceptLanguage, countrycodes, namedetails, dedupe, extratags, stateCode);
 
         // TODO: test validations
     }

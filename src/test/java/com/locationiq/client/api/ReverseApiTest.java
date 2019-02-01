@@ -52,7 +52,8 @@ public class ReverseApiTest {
         String acceptLanguage = null;
         Integer namedetails = null;
         Integer extratags = null;
-        Location response = api.reverse(lat, lon, format, normalizecity, addressdetails, acceptLanguage, namedetails, extratags);
+        Integer stateCode = null;
+        Location response = api.reverse(lat, lon, format, normalizecity, addressdetails, acceptLanguage, namedetails, extratags, stateCode);
 
         // TODO: test validations
     }
