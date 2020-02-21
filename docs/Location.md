@@ -1,9 +1,12 @@
 
+
 # Location
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**distance** | [**BigDecimal**](BigDecimal.md) |  |  [optional]
 **placeId** | **String** |  |  [optional]
 **licence** | **String** |  |  [optional]
 **osmType** | **String** |  |  [optional]
@@ -17,6 +20,7 @@ Name | Type | Description | Notes
 **importance** | [**BigDecimal**](BigDecimal.md) |  |  [optional]
 **address** | [**Address**](Address.md) |  |  [optional]
 **namedetails** | [**Namedetails**](Namedetails.md) |  |  [optional]
+**matchquality** | [**Matchquality**](Matchquality.md) |  |  [optional]
 
 
 
