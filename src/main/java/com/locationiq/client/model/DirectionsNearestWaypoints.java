@@ -30,7 +30,7 @@ import java.util.List;
 /**
  * DirectionsNearestWaypoints
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-02-21T10:08:21.449715+05:30[Asia/Kolkata]")
+
 public class DirectionsNearestWaypoints {
   public static final String SERIALIZED_NAME_NODES = "nodes";
   @SerializedName(SERIALIZED_NAME_NODES)

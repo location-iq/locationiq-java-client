@@ -33,7 +33,7 @@ import java.util.List;
 /**
  * Location
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-02-21T10:08:21.449715+05:30[Asia/Kolkata]")
+
 public class Location {
   public static final String SERIALIZED_NAME_DISTANCE = "distance";
   @SerializedName(SERIALIZED_NAME_DISTANCE)

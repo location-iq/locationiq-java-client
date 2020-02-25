@@ -13,7 +13,7 @@
 
 package com.locationiq.client.api;
 
-import com.locationiq.client.ApiException;
+import LocationIq.ApiException;
 import java.math.BigDecimal;
 import com.locationiq.client.model.DirectionsDirections;
 import com.locationiq.client.model.Error;

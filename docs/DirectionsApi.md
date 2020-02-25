@@ -18,11 +18,11 @@ Finds the fastest route between coordinates in the supplied order.
 ### Example
 ```java
 // Import classes:
-import com.locationiq.client.ApiClient;
-import com.locationiq.client.ApiException;
-import com.locationiq.client.Configuration;
-import com.locationiq.client.auth.*;
-import com.locationiq.client.models.*;
+import LocationIq.ApiClient;
+import LocationIq.ApiException;
+import LocationIq.Configuration;
+import LocationIq.auth.*;
+import LocationIq.models.*;
 import com.locationiq.client.api.DirectionsApi;
 
 public class Example {

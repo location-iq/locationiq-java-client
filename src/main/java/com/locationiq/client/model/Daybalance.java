@@ -27,7 +27,7 @@ import java.io.IOException;
 /**
  * Daybalance
  */
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2020-02-21T10:08:21.449715+05:30[Asia/Kolkata]")
+
 public class Daybalance {
   public static final String SERIALIZED_NAME_DAY = "day";
   @SerializedName(SERIALIZED_NAME_DAY)

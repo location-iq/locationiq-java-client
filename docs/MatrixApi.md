@@ -18,11 +18,11 @@ Computes duration of the fastest route between all pairs of supplied coordinates
 ### Example
 ```java
 // Import classes:
-import com.locationiq.client.ApiClient;
-import com.locationiq.client.ApiException;
-import com.locationiq.client.Configuration;
-import com.locationiq.client.auth.*;
-import com.locationiq.client.models.*;
+import LocationIq.ApiClient;
+import LocationIq.ApiException;
+import LocationIq.Configuration;
+import LocationIq.auth.*;
+import LocationIq.models.*;
 import com.locationiq.client.api.MatrixApi;
 
 public class Example {

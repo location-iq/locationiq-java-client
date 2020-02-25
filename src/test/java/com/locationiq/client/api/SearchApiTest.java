@@ -13,7 +13,7 @@
 
 package com.locationiq.client.api;
 
-import com.locationiq.client.ApiException;
+import LocationIq.ApiException;
 import com.locationiq.client.model.Error;
 import com.locationiq.client.model.Location;
 import org.junit.Test;

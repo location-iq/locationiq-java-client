@@ -18,11 +18,11 @@ The Balance API provides a count of request credits left in the user&#39;s accou
 ### Example
 ```java
 // Import classes:
-import com.locationiq.client.ApiClient;
-import com.locationiq.client.ApiException;
-import com.locationiq.client.Configuration;
-import com.locationiq.client.auth.*;
-import com.locationiq.client.models.*;
+import LocationIq.ApiClient;
+import LocationIq.ApiException;
+import LocationIq.Configuration;
+import LocationIq.auth.*;
+import LocationIq.models.*;
 import com.locationiq.client.api.BalanceApi;
 
 public class Example {

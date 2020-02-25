@@ -13,14 +13,14 @@
 
 package com.locationiq.client.api;
 
-import com.locationiq.client.ApiCallback;
-import com.locationiq.client.ApiClient;
-import com.locationiq.client.ApiException;
-import com.locationiq.client.ApiResponse;
-import com.locationiq.client.Configuration;
-import com.locationiq.client.Pair;
-import com.locationiq.client.ProgressRequestBody;
-import com.locationiq.client.ProgressResponseBody;
+import LocationIq.ApiCallback;
+import LocationIq.ApiClient;
+import LocationIq.ApiException;
+import LocationIq.ApiResponse;
+import LocationIq.Configuration;
+import LocationIq.Pair;
+import LocationIq.ProgressRequestBody;
+import LocationIq.ProgressResponseBody;
 
 import com.google.gson.reflect.TypeToken;
 

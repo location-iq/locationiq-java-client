@@ -18,11 +18,11 @@ Matching API matches or snaps given GPS points to the road network in the most p
 ### Example
 ```java
 // Import classes:
-import com.locationiq.client.ApiClient;
-import com.locationiq.client.ApiException;
-import com.locationiq.client.Configuration;
-import com.locationiq.client.auth.*;
-import com.locationiq.client.models.*;
+import LocationIq.ApiClient;
+import LocationIq.ApiException;
+import LocationIq.Configuration;
+import LocationIq.auth.*;
+import LocationIq.models.*;
 import com.locationiq.client.api.MatchingApi;
 
 public class Example {

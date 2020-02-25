@@ -2,7 +2,6 @@
 
 LocationIQ
 - API version: 1.1.0
-  - Build date: 2020-02-21T10:08:21.449715+05:30[Asia/Kolkata]
 
 LocationIQ provides flexible enterprise-grade location based solutions. We work with developers, startups and enterprises worldwide serving billions of requests everyday. This page provides an overview of the technical aspects of our API and will help you get started.
 
@@ -73,11 +72,11 @@ Please follow the [installation](#installation) instruction and execute the foll
 ```java
 
 // Import classes:
-import com.locationiq.client.ApiClient;
-import com.locationiq.client.ApiException;
-import com.locationiq.client.Configuration;
-import com.locationiq.client.auth.*;
-import com.locationiq.client.models.*;
+import LocationIq.ApiClient;
+import LocationIq.ApiException;
+import LocationIq.Configuration;
+import LocationIq.auth.*;
+import LocationIq.models.*;
 import com.locationiq.client.api.AutocompleteApi;
 
 public class Example {
